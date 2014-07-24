@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+
+    <!--Comienzo configuracion del tema 4-->
+    <!--Declaracion del HolaMundoServlet-->
+    <servlet>
+        <servlet-name>HolaMundoServlet</servlet-name>
+        <servlet-class>tema4.HolaMundoServlet</servlet-class>
+    </servlet>
+    <!--Mapeo de URL del HolaMundoServlet-->
+    <servlet-mapping>
+        <servlet-name>HolaMundoServlet</servlet-name>
+        <url-pattern>/HolaMundo</url-pattern>
+    </servlet-mapping>
+    <!--Declaracion del CabecerasServlet-->
+    <servlet>
+        <servlet-name>CabecerasServlet</servlet-name>
+        <servlet-class>tema4.CabecerasServlet</servlet-class>
+    </servlet>
+    <!--Mapeo de URL del CabecerasServlet-->
+    <servlet-mapping>
+        <servlet-name>CabecerasServlet</servlet-name>
+        <url-pattern>/cabeceras</url-pattern>
+    </servlet-mapping>
+    <!--Declaracion del FormularioServlet-->
+    <servlet>
+        <servlet-name>FormularioServlet</servlet-name>
+        <servlet-class>tema4.FormulariotServlet</servlet-class>
+    </servlet>
+    <!--Mapeo de URL del FormularioServlet-->
+    <servlet-mapping>
+        <servlet-name>FormularioServlet</servlet-name>
+        <url-pattern>/formulario</url-pattern>
+    </servlet-mapping>
+    <!--Fin configuracion del tema 4-->
+
+   <!--Comienzo configuracion del tema 5-->
+   <!--Declaracion del ConfigurableServlet-->
+    <servlet>
+        <servlet-name>ConfigurableServlet</servlet-name>
+        <servlet-class>tema5.ConfigurableServlet</servlet-class>
+        <!--Parametros de configuración para ConfigurableServlet-->
+        <init-param>
+            <param-name>parametro1</param-name>
+            <param-value>Valor1</param-value>
+        </init-param>
+        <init-param>
+            <param-name>parametro2</param-name>
+            <param-value>Valor2</param-value>
+        </init-param>
+    </servlet>
+    <!--Mapeo de URL del ConfigurableServlet-->
+    <servlet-mapping>
+        <servlet-name>ConfigurableServlet</servlet-name>
+        <url-pattern>/ConfigurableServlet</url-pattern>
+    </servlet-mapping>
+    <!--Fin configuracion del tema 5-->
+
+   <!--Comienzo configuracion del tema 6-->
+    <servlet>
+        <servlet-name>SessionServlet</servlet-name>
+        <servlet-class>tema6.SessionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SessionServlet</servlet-name>
+        <url-pattern>/SessionServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CookieServlet</servlet-name>
+        <servlet-class>tema6.CookieServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CookieServlet</servlet-name>
+        <url-pattern>/CookieServlet</url-pattern>
+    </servlet-mapping>
+    <!--Fin configuracion del tema 6-->
+
+    <!--Comienzo configuracion del tema 7-->
+    <servlet>
+        <servlet-name>AutenticacionServlet</servlet-name>
+        <servlet-class>tema7.AutenticacionServlet</servlet-class>
+        <init-param>
+            <!--Parametro de configuración; el archivo que contiene el password de administrador-->
+            <param-name>ficheroUsuarios</param-name>
+            <param-value>/tema7/ficheroUsuarios.prop</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AutenticacionServlet</servlet-name>
+        <url-pattern>/AutenticacionServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ListarArticulosServlet</servlet-name>
+        <servlet-class>tema7.ListarArticulosServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListarArticulosServlet</servlet-name>
+        <url-pattern>/ListarArticulosServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AnhadiArticuloServlet</servlet-name>
+        <servlet-class>tema7.AnhadiArticuloServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AnhadiArticuloServlet</servlet-name>
+        <url-pattern>/AnhadiArticuloServlet</url-pattern>
+    </servlet-mapping>
+    <!--Fin configuracion del tema 7-->
+
+    <!--Comienzo configuracion del tema 8-->
+    <servlet>
+        <servlet-name>ExceptionServlet</servlet-name>
+        <servlet-class>tema8.ExceptionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ExceptionServlet</servlet-name>
+        <url-pattern>/ExceptionServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>GestorDeExcepcionesServlet</servlet-name>
+        <servlet-class>tema8.GestorDeExcepcionesServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GestorDeExcepcionesServlet</servlet-name>
+        <url-pattern>/GestorDeExcepcionesServlet</url-pattern>
+    </servlet-mapping>
+    <!--Declaramos el recurso que va a gestionar errores http 404-->
+    <error-page>
+        <error-code>404</error-code>
+        <!--En este caso, el recurso va a ser una página HTML estatica-->
+        <location>/tema8/404error.html</location>
+    </error-page>
+    <!--Declaramos el recurso que va a gestionar errores http 500-->
+    <error-page>
+        <error-code>500</error-code>
+        <!--En este caso, el recurso va a ser una página HTML estatica-->
+        <location>/tema8/500error.html</location>
+    </error-page>
+    <!--Declaramos el recurso que va a gestionar NullPointerExceptions en el codigo Java-->
+    <error-page>
+        <exception-type>java.lang.NullPointerException</exception-type>
+        <!--En este caso, el recurso va a ser Servlet-->
+        <location>/GestorDeExcepcionesServlet</location>
+    </error-page>
+    <!--Declaramos el recurso que va a gestionar NullPointerExceptions en el codigo Java-->
+    <error-page>
+        <exception-type>java.lang.NumberFormatException</exception-type>
+        <!--En este caso, el recurso va a ser Servlet-->
+        <location>/GestorDeExcepcionesServlet</location>
+    </error-page>
+    <!--Fin configuracion del tema 8-->
+
+    <!--Comienzo configuracion del tema 9-->
+    <servlet>
+        <servlet-name>ProblemaDeConcurrenciaServlet</servlet-name>
+        <servlet-class>tema9.ProblemaDeConcurrenciaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProblemaDeConcurrenciaServlet</servlet-name>
+        <url-pattern>/ProblemaDeConcurrenciaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>STMConcurrenciaServlet</servlet-name>
+        <servlet-class>tema9.STMConcurrenciaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>STMConcurrenciaServlet</servlet-name>
+        <url-pattern>/STMConcurrenciaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ManualConcurrenciaServlet</servlet-name>
+        <servlet-class>tema9.ManualConcurrenciaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ManualConcurrenciaServlet</servlet-name>
+        <url-pattern>/ManualConcurrenciaServlet</url-pattern>
+    </servlet-mapping>
+    <!--Fin configuracion del tema 9-->
+
+    <!--Comienzo configuracion del tema 10-->
+    <servlet>
+        <servlet-name>JDBCServlet</servlet-name>
+        <servlet-class>tema10.JDBCServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>JDBCServlet</servlet-name>
+        <url-pattern>/JDBCServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ConectionPoolServlet</servlet-name>
+        <servlet-class>tema10.ConectionPoolServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ConectionPoolServlet</servlet-name>
+        <url-pattern>/ConectionPoolServlet</url-pattern>
+    </servlet-mapping>
+    <!--Configuracion relativa al pool de conexiones-->
+    <resource-ref>
+        <res-ref-name>jdbc/HolaMundoPool</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+        <res-sharing-scope>Shareable</res-sharing-scope>
+    </resource-ref>
+    <!--Fin configuracion del tema 10-->
+    <!--Comienzo configuracion del tema 11-->
+    <listener>
+        <listener-class>
+            tema11.ListenerDeContexto
+        </listener-class>
+    </listener>
+    <context-param>
+        <param-name>parametro</param-name>
+        <param-value>valor </param-value>
+    </context-param>
+    <listener>
+        <listener-class>
+            tema11.ListenerDeSesion
+        </listener-class>
+    </listener>
+    <filter>
+        <filter-name>Filtro</filter-name>
+        <filter-class>tema11.Filtro</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>Filtro</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <!--Fin configuracion del tema 11-->
+</web-app>
